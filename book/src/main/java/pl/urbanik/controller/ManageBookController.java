@@ -39,19 +39,30 @@ public class ManageBookController {
     }
 
     @GetMapping("edit/{id}")
-    public String editBook(Model model, @PathVariable Long id){
+    public String editBook(Model model, @PathVariable Long id) {
         model.addAttribute("book", bookRepository.getOne(id));
         return "/books/edit";
     }
 
     @PostMapping("/edit")
-    public String editBook(@Valid Book book, BindingResult result){
-        if (result.hasErrors()){
+    public String editBook(@Valid Book book, BindingResult result) {
+        if (result.hasErrors()) {
             return "/books/edit";
         }
         bookRepository.save(book);
         return "redirect:/all";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable Long id) {
+        bookRepository.deleteById(id);
+        return "redirect:/all";
+    }
+
+    @GetMapping("/show/{id}")
+    public String showBook(@PathVariable Long id, Model model) {
+        model.addAttribute("book", bookRepository.getOne(id));
+        return "/books/show";
+    }
 
 }
