@@ -1,9 +1,9 @@
 package pl.urbanik.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,10 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@AllArgsConstructor
 @RequiredArgsConstructor
-@NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 public class Book {
 
     @Id
