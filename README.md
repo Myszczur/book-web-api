@@ -1,2 +1,2 @@
 # book-web-api
-Book REST app extension
+Book app extension
